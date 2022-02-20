@@ -25,6 +25,7 @@ Para conferir qualidade de código:
 ```console
 pipenv run flake8
 ```
+Suportada versão 3
 
 Tópicos a serem abordados:
  1. Git
