@@ -1,9 +1,12 @@
 name: libpythonproLEE-CI
 
-on: [ pull_request ]
+on: [ push ]
 
 jobs:
   build:
+    env:
+      GITHUB_TOKEN:  bd4152ce-86b3-4deb-8383-02adee5c6a60
+
     runs-on: windows-latest
 
     steps:
@@ -13,10 +16,12 @@ jobs:
     - uses: actions/setup-python@v2
     - with:
         python-version: 3.10.2
+
     - name: Install dependencies
       run: |
       pip install pipenv codecov
       pipenv sync --dev
+
     - name: Lint with flake8
       run: |
       flake8 .
@@ -26,3 +31,9 @@ jobs:
 
     - name: Posting Coverage
       run: pipenv run codecov
+
+    - name: Coverage Report
+      env:
+        CODECOV_TOKEN: bd4152ce-86b3-4deb-8383-02adee5c6a60
+      run: |
+        codecov
