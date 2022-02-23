@@ -9,5 +9,4 @@ class EnviadorDeSpam:
                 remetente,
                 usuario.email,
                 assunto,
-                corpo
-            )
+                corpo)
